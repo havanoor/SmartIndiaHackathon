@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse
 from .models import *
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -12,11 +13,40 @@ def register(request):
     new=NewUser(request.POST)
     if new.is_valid():
         new.save()
+        user = authenticate(username=new.cleaned_data['username'], password=new.cleaned_data['password1'])
+        if user is not None:
+            login(request, user)
+        type1=new.cleaned_data['post']
+        if type1.lower()=='farmer':
+            
+            return render(request,'registerFarmer.html',{'type':type1.lower()})
+           
+        elif type1.lower()=='seller':
+            pass
+        elif type1.lower()=='government':
+            pass
+        elif type1.lower()=='industry':
+            pass
+
         return redirect('login')
     else:
         new=NewUser()
      
     return render(request,'NewUser.html',{'form':new})
+
+
+def registerf(request,value):
+    if request.method=='POST':
+        if value=='farmer':
+        
+            farm=Farmer()
+            farm.address=request.POST['address']
+            farm.Dob=request.POST['dob']
+            farm.fidentity=request.user
+            farm.save()
+
+
+
 
 
 def loginUser(request):
@@ -31,7 +61,7 @@ def loginUser(request):
         else:
             #return render(request, 'signup.html', {'error': "Unable to Log you in!"})
             error="Try again"
-    return render(request, 'login.html', {'error': error})
+    return render(request, 'loginSIH.html', {'error': error})
 
 @login_required
 def home(request):

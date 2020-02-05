@@ -19,4 +19,5 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('farmers.urls')),
+    path('forward/',include('forward.urls')),
 ]

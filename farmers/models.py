@@ -2,13 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
-class State(models.Model):
-    state=models.CharField(blank=False,max_length=100)
-
-class District(models.Model):
-    state=models.ForeignKey(State,on_delete=models.CASCADE)
-    district=models.CharField(blank=False,max_length=100)
-
 
 #details of the farmer
 class Farmer(models.Model):
@@ -17,7 +10,7 @@ class Farmer(models.Model):
     address=models.CharField(blank=False,max_length=200)
     #owner=models.OneToOneField(User,on_delete=models.CASCADE)
     balance=models.IntegerField(default=0)
-
+    
 
 #details of the seller
 class Seller(models.Model):
@@ -48,6 +41,15 @@ class Transaction(models.Model):
     name=models.ForeignKey(Inventory,on_delete=models.CASCADE)
     farm=models.ForeignKey(Farmer,on_delete=models.CASCADE)
     seller=models.ForeignKey(Seller,on_delete=models.CASCADE)
+
+
+class Dealer(models.Model):
+    Ref=models.ForeignKey(User,on_delete=models.CASCADE)
+    Name=models.TextField()
+    Address=models.TextField()
+    Contact=models.CharField(max_length=10)
+	
+
 
 
 

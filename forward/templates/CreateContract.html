@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   
+    <form action = "accept" method ="POST">
+        {% csrf_token %}
+        Item <input type="text" name="item" required>
+        Requirement<input type="text" name="Requirement" required>
+        Lock_At<input type="number" name="Price" required>
+        Delivery<input type="date" name="Delivery" required>
+        <input type="submit" >
+    </form>
+    
+</body>
+</html>

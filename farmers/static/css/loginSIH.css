@@ -1,0 +1,62 @@
+   body{
+   font-family: Tahoma, Geneva, sans-serif;
+   color: #fff;
+   background-image: url("statics/background.jpg");
+   background-repeat: no repeat;
+   background-size:1550px 800px;
+   }
+   .signin{
+      background: rgba(44,62,80,0.7);
+      padding: 40px;
+      width: 350px;
+      margin: auto;
+      margin-top: 200px;
+      height: 450px;
+      margin-left: 600px;
+   }
+   form{
+      width:240 px;
+      text-align: center;
+   }
+   input[type=text]{
+      width: 240px;
+      text-align: center;
+      background: transparent;
+      border:none;
+      border-bottom: 2px solid #fff;
+      font-family: 'Play', sans-serif;
+      font-size: 16px;
+      font-weight: 200px;
+      padding: 10px 0;
+      transition: border 0.5s;
+      outline: none;
+   }
+   input[type=password]{
+      width: 240px;
+      text-align: center;
+      background: transparent;
+      border:none;
+      border-bottom: 2px solid #fff;
+      font-family: 'Play', sans-serif;
+      font-size: 16px;
+      font-weight: 200px;
+      padding: 10px 0;
+      transition: border 0.5s;
+      outline: none;
+   }
+   input[type=button]{
+      border:none;
+      width:190px;
+      background: white;
+      color: #000;
+      font-size: 16px;
+      line-height: 25px;
+      padding: 10px 0;
+      border-radius: 15px;
+      cursor: pointer;
+   }
+   h2{ color:white; }
+   a{ color: yellow; text-decoration: blink; }
+   a:hover{
+     color:skyblue;
+   }
