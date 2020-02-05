@@ -2,6 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
+class State(models.Model):
+    state=models.CharField(blank=False,max_length=100)
+
+class District(models.Model):
+    state=models.ForeignKey(State,on_delete=models.CASCADE)
+    district=models.CharField(blank=False,max_length=100)
+
+
 #details of the farmer
 class Farmer(models.Model):
     fidentity=models.OneToOneField(User,on_delete=models.CASCADE)
