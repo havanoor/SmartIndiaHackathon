@@ -56,6 +56,20 @@
 
     </form>
      {% endif %}
+     {% if type == 'bankexecutive' %}
+    <form method="POST" action='/farmerRegister/{{type}}'>
+        {% csrf_token %}
+        
+        
+        address:
+        <input type="text" name="address"><br>
+        Phone No:
+        <input type='text' name="contact">
+        <button type="submit" >Submit</button>
+
+    </form>
+     {% endif %}
+     
    </div>
 </body>
 </html>

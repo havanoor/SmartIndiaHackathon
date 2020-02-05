@@ -5,11 +5,14 @@ from django.http import HttpResponse
 from .models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
+from twilio.rest import Client
 # Create your views here.
 
 
 def register(request):
+    
+
+    
     new=NewUser(request.POST)
     if new.is_valid():
         new.save()
@@ -24,6 +27,8 @@ def register(request):
         elif type1.lower()=='seller':
             return render(request,'register.html',{'type':type1.lower()})
         elif type1.lower()=='dealer':
+            return render(request,'register.html',{'type':type1.lower()})
+        elif type1.lower()=='bankexecutive':
             return render(request,'register.html',{'type':type1.lower()})
         
 
@@ -57,6 +62,11 @@ def registerf(request,value):
             s.address=request.POST['address']
             s.Contact=request.POST['contact']
             s.save()
+        elif value == 'bankexecutive':
+            b=BankExecutive()
+            b.Ref=request.user
+            b.Address=request.POST['address']
+            b.Contact=request.POST['contact']
 
     return HttpResponse('Created')
 
@@ -89,6 +99,7 @@ def loginUser(request):
 
 @login_required
 def home(request):
+
     return HttpResponse("Working")
 
 def withdraw(request,value):
