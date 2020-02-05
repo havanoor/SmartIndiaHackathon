@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'farmers.apps.FarmersConfig',
-    'forward.apps.ForwardConfig'
+    'forward.apps.ForwardConfig',
+    'Bank.apps.BankConfig',
 ]
 
 MIDDLEWARE = [

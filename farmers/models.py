@@ -50,6 +50,17 @@ class Dealer(models.Model):
     Contact=models.CharField(max_length=10)
 	
 
+class BankExecutive(models.Model):
+    Ref=models.ForeignKey(User,on_delete=models.CASCADE)
+    Address=models.CharField(max_length=100)
+    Contact=models.IntegerField()
+
+
+
+
+
+
+
 
 
 
