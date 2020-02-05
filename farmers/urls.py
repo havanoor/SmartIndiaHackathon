@@ -11,7 +11,7 @@ urlpatterns = [
     path('withdraw/<str:value>/',views.withdraw,name="withdraw"),
     path('calc/<str:value>/',views.calculate,name="cash"),
     path('buy/',views.purchase,name='buy'),
-    path('farmerregister/<str:value>',views.registerf,name="register")
+    path('farmerRegister/<str:value>',views.registerf,name="register")
     
     
     

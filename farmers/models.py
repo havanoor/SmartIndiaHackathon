@@ -17,7 +17,7 @@ class Seller(models.Model):
     sidentity=models.OneToOneField(User,on_delete=models.CASCADE)
     address=models.CharField(blank=False,max_length=200)
     itemssold=models.CharField(blank=False,max_length=200)
-
+    Contact=models.CharField(max_length=13,blank=False)
 
     
 
@@ -45,7 +45,7 @@ class Transaction(models.Model):
 
 class Dealer(models.Model):
     Ref=models.ForeignKey(User,on_delete=models.CASCADE)
-    Name=models.TextField()
+    
     Address=models.TextField()
     Contact=models.CharField(max_length=10)
 	

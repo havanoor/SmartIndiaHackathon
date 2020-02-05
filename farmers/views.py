@@ -19,16 +19,15 @@ def register(request):
         type1=new.cleaned_data['post']
         if type1.lower()=='farmer':
             
-            return render(request,'registerFarmer.html',{'type':type1.lower()})
+            return render(request,'register',{'type':type1.lower()})
            
         elif type1.lower()=='seller':
-            pass
-        elif type1.lower()=='government':
-            pass
-        elif type1.lower()=='industry':
-            pass
+            return render(request,'register.html',{'type':type1.lower()})
+        elif type1.lower()=='dealer':
+            return render(request,'register.html',{'type':type1.lower()})
+        
 
-        return redirect('login')
+        return redirect('home')
     else:
         new=NewUser()
      
@@ -44,6 +43,31 @@ def registerf(request,value):
             farm.Dob=request.POST['dob']
             farm.fidentity=request.user
             farm.save()
+        elif value=='dealer':
+        
+            d=Dealer()
+            d.Ref=request.user
+            d.Address=request.POST['address']
+            d.Contact=request.POST['contact']
+            d.save()
+        elif value=='seller':
+        
+            s=Seller()
+            s.sidentity=request.user
+            s.address=request.POST['address']
+            s.Contact=request.POST['contact']
+            s.save()
+
+    return HttpResponse('Created')
+
+
+
+
+
+            
+
+        
+        
 
 
 
