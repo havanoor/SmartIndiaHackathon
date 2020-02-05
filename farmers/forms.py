@@ -4,9 +4,31 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import *
 
 class NewUser(UserCreationForm):   
-    email=forms.EmailField()
-    post=forms.CharField()
+    email=forms.EmailField(label="",widget=forms.TextInput(
 
+        attrs={'class':'us','placeholder':'Email'}
+    ))
+    post=forms.CharField(label="",widget=forms.TextInput(
+
+        attrs={'class':'us','placeholder':'Post'}
+    ))
+    password2=forms.CharField(label="",widget=forms.PasswordInput(
+
+        attrs={'class':'us','placeholder':' Confirm Password'}
+    ))
+
+    password1=forms.CharField(label="",widget=forms.PasswordInput(
+
+        attrs={'class':'us','placeholder':'Password'}
+    ))
+    
+    username=forms.CharField(label="",widget=forms.TextInput(
+
+        attrs={'class':'us','placeholder':'Username'}
+    )
+    
+    
+    )
 
 
     class Meta: 

@@ -4,8 +4,13 @@ from . import views
 
 
 urlpatterns=[
-    path('home',views.home,name='home'),
+    #Homepage of forward market
+    path('home',views.home,name='homeForward'),
+
+    #Create a new contract between dealer and farmer
     path('CreateContract',views.create,name='CreateContract'),
+
+    #
     path('accept',views.accept,name='accept'),
     
 ]

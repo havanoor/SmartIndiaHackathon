@@ -17,8 +17,14 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
+    #urls of bank finance app
     path('Bank/',include("Bank.urls")),
+
     path('admin/', admin.site.urls),
+
+    #urls of farmers portal  app
     path('',include('farmers.urls')),
+
+    #urls of forward market app
     path('forward/',include('forward.urls')),
 ]

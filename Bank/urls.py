@@ -3,9 +3,13 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-
+    #URL to view all the loans
     path('ViewLoan/',views.LoanView,name='loanView'),
-    path('makeloan/',views.makeloan,name='makeloan'),
+
+    #URL to make new loan request
+    path('CreateLoan/makeloan/',views.makeloan,name='makeloan'),
+
+    #URL form for new loan
     path('CreateLoan/',views.CreateLoan,name='CreateLoan')
     
     
