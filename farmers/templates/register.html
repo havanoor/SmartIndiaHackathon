@@ -1,24 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title></title>
+     <meta charset="utf-8">
+	 <link href="{% static 'css/signup.css' %}" rel="stylesheet" type="text/css" >
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="signup mx-auto">
     {% if type == 'farmer' %}
     <form method="POST" action='/farmerRegister/{{type}}'>
         {% csrf_token %}
-        Username:
-        <input type="text" name="address"><br>
-        DOB:
-        <input type="date" name="dob"><br>
-        State:
-        <input type="text" name="state"><br>
-        District:
-        <input type="district" name="district"><br>
-        <button type="submit" >Submit</button>
+        <h2 style="color: white;">REGISTER LAND</h2>
+        
+        <input type="text" name="address" placeholder="Username"><br><br>
+    
+        <input type="date" name="dob" placeholder="Date Of Birth"><br><br>
+
+        <input type="text" name="state" placeholder="State"><br><br>
+        
+        <input type="text" name="district" placeholder="District"><br><br><br>
+        <button type="submit" class="btn btn-info" >Submit</button>
 
     </form>
      {% endif %}
@@ -48,10 +56,6 @@
 
     </form>
      {% endif %}
-
-
-
-
-
+   </div>
 </body>
 </html>
