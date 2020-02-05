@@ -1,0 +1,16 @@
+<html>
+    <head><title></title></head>
+    <body>
+<form action="/calc/{{val}}/" method="POST">
+    {% csrf_token %} 
+ Enter Amount to {{val}}:<input type="number" name="val">
+ <br>
+ <br>
+    
+ <button type="submit">{{val}}</button>
+</body>
+ 
+ </form>
+
+ </html>
+ 

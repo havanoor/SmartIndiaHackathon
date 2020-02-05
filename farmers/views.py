@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
-from .forms import NewUser
+from .forms import *
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse
+from .models import *
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -14,7 +15,7 @@ def register(request):
         return redirect('login')
     else:
         new=NewUser()
-    
+     
     return render(request,'NewUser.html',{'form':new})
 
 
@@ -35,4 +36,43 @@ def loginUser(request):
 @login_required
 def home(request):
     return HttpResponse("Working")
+
+def withdraw(request,value):
+    if value=='withdraw':
+        return render(request,'withdraw.html',{'val':'withdraw'})
+
+
+
+def calculate(request,value):
+    
+    farmer=Farmer.objects.filter(fidentity=request.user).first()
+    print(farmer)
+    if value=='withdraw':
+        farmer.balance -= int(request.POST['val'] )
+    farmer.save()
+    return redirect('home')
+
+def purchase(request):
+    buy=TransactionsForm(request.POST)
+    if buy.is_valid():
+        buy.save()
+        user1=buy.cleaned_data['farm']
+        user1.balance =user1.balance-buy.cleaned_data['name'].amount
+        user1.save()
+        return HttpResponse("OK")
+        
+
+
+    else:
+        buy=TransactionsForm()
+    
+
+
+
+
+
+    return render(request,'purchase.html',{'form1':buy})
+
+
+    
 
