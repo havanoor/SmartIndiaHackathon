@@ -10,5 +10,6 @@ admin.site.register(Farmer)
 admin.site.register(Seller)
 admin.site.register(Inventory)
 admin.site.register(Transaction)
+admin.site.register(Dealer)
 
 
