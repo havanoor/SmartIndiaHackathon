@@ -1,0 +1,122 @@
+{% load static %}
+<html>
+  <head>
+     <title></title>
+	 <link href="{% static 'css/try1.css' %}" rel="stylesheet" type="text/css" >
+	 <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href="{% static 'css/home.css' %}" rel="stylesheet" type="text/css" >
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg">
+    <header class="site-headers" >
+	 <div class="d-flex"> 
+	   <nav class="nav navbar">
+	      <div class="logo">
+		     <h2>FARMER'S PORTAL</h2>
+		  </div>
+		  <div class="menu">
+		    <ul>
+			   <li><a href="#" style="color:white;">Home</a></li>
+			   <li><a href="#" style="color:white;">About<span></span></a></li>
+			   <li><a href="#" style="color:white;">Schemes<span></span></a></li>
+			   <li><a href="#" style="color:white;">News</a></li>
+			   <li><a href="#" style="color:white;">Logout</a></li>
+			</ul>
+		  </div>
+	   </nav>
+	   </div>
+  <section class="gallery-block cards-gallery">
+  <div class="container">
+   <div class="heading"><h1>HELLO {{name}}</h1>
+  </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="card bg-dark text-white border-0 transform-on-hover">
+          <img class="card-img-top img-fluid" src="{% static 'css/statics/cropanalysis.png' %}" >
+         <div class="card-body">
+           
+         </div>
+        </div>
+    </div>
+  
+   <div class="col-lg-3">
+        <div class="card bg-dark text-white border-0 transform-on-hover" >
+          <img class="card-img-top img-fluid" src="{% static 'css/statics/landanalysis.png' %}" >
+        <div class="card-body">
+           
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+        <div class="card bg-dark text-white border-0 transform-on-hover" >
+          <img class="card-img-top img-fluid" src="{% static 'css/statics/weatherstation1.png' %}" >
+        <div class="card-body">
+           
+        </div>
+      </div>
+    </div>
+  
+      <div class="col-lg-3">
+        <div class="card bg-dark text-white border-0 transform-on-hover" >
+          <img class="card-img-top img-fluid" src="{% static 'css/statics/pesticideattack1.png' %}" >
+        <div class="card-body">
+           
+        </div>
+      </div>
+    </div>
+   </div>
+   <br><br>
+   
+  <div class="row">
+   <div class="col-lg-3 col-sm-4">
+        <div class="card bg-dark text-white border-0 transform-on-hover" >
+          <a href="{% url 'buy' %}"><img class="card-img-top img-fluid" src="{% static 'css/statics/marketplace1.png' %}" ></a>
+        <div class="card-body">
+   
+        </div>
+      </div>
+    </div>
+                 
+        <div class="col-lg-3 col-sm-4">
+        <div class="card bg-dark text-white border-0 transform-on-hover" >
+          <img class="card-img-top img-fluid" src="{% static 'css/statics/animalhusbandry1.png' %}" >
+        <div class="card-body">
+           
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-4">
+        <div class="card bg-dark text-white border-0 transform-on-hover" >
+          <img class="card-img-top img-fluid" src="{% static 'css/statics/kisanseva.png' %}" >
+        <div class="card-body">
+           
+        </div>
+      </div>
+    </div>
+  
+      <div class="col-lg-3 col-sm-4">
+        <div class="card bg-dark text-white border-0 transform-on-hover" >
+          <img class="card-img-top img-fluid" src="{% static 'css/statics/futurescontracts.png' %}" >
+        <div class="card-body">
+           
+        </div>
+      </div>
+    </div>
+     
+    </div>
+  </div>
+  <br><br>
+
+  </div>
+</section>
+	</header>   
+  
+  </body>
+</html>

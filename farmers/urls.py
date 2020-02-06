@@ -10,7 +10,7 @@ urlpatterns = [
     path('register/',views.register,name='newuser'),
 
     #Main homepage of our website
-    path('home/',views.home,name='home'),
+    path('home/',views.home,name='home'), 
 
     #Used to make transactions on the website
     path('withdraw/<str:value>/',views.withdraw,name="withdraw"),

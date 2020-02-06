@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Marketplace</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'css/menu.css' %}" rel="stylesheet" type="text/css" >
+  <link href="{% static 'css/home.css' %}" rel="stylesheet" type="text/css" >
+  <link href="{% static 'css/try1.css' %}" rel="stylesheet" type="text/css" >
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body class="bg4">   
+          <nav class="navbar bg-dark">
+             <div class="logo">
+                <h2>FARMER'S PORTAL</h2>
+             </div>
+             <div class="menu">
+               <ul>
+                  <li><a href="#" style="color:white;">Home</a></li>
+                  <li><a href="#" style="color:white;">About<span></span></a></li>
+                  <li><a href="#" style="color:white;">Schemes<span></span></a></li>
+                  <li><a href="#" style="color:white;">News</a></li>
+               </ul>
+             </div>
+          </nav>
+          <div class="container">
+            <!--loop starts-->
+            {% for i in val%}
+            <div class="row">
+                  <div class="col-lg-3 col-12">
+                      <div class="card text-center">
+                          <div class="card-header">title</div>
+                          <div class="card-body"></div>
+                          <li><img src="{{i.photo.url}}">img goes here</li>
+                          <li>Cost:{{i.amount}}</li>
+                          <li>Seller{{i.seller}}</li>
+                          <div class="card-footer">
+                          <a href="#">Purchase</a>                             
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+          </body>
+</html>

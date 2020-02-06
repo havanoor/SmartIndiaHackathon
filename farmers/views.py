@@ -33,6 +33,7 @@ def register(request):
         
 
         return redirect('home')
+        
     else:
         new=NewUser()
      
@@ -100,7 +101,7 @@ def loginUser(request):
 @login_required
 def home(request):
 
-    return HttpResponse("Working")
+    return render(request,'home.html')
 
 def withdraw(request,value):
     if value=='withdraw':
@@ -136,7 +137,14 @@ def purchase(request):
 
 
 
-    return render(request,'purchase.html',{'form1':buy})
+    return render(request,'marketplace.html',{'form1':buy})
+
+def purchase(request):
+    a=Inventory.objects.all()
+    for i in a:
+        print(i.photo)
+    return render(request,'marketplace.html',{'val':a})
+
 
 
     
