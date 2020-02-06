@@ -1,6 +1,31 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+class State(models.Model):
+    sname=models.CharField(max_length=100,blank=None)
+    
+
+class District(models.Model):
+    dname=models.CharField(max_length=100,blank=None)
+    sref=models.ForeignKey(State,on_delete=models.CASCADE)
+    ph=models.FloatField(blank=False)
+    N=models.FloatField(blank=False)
+    P=models.FloatField(blank=False)
+    K=models.FloatField(blank=False)
+    OC=models.FloatField(blank=False)
+    Fe=models.FloatField(blank=False)
+
+
+
+class CropStats(models.Model):
+    dref=models.ForeignKey(District,on_delete=models.CASCADE)
+    ph=models.ImageField()
+    N=models.ImageField()
+    P=models.ImageField()
+    K=models.ImageField()
+    OC=models.ImageField()
+    Fe=models.ImageField()
+
 
 
 #details of the farmer
@@ -8,9 +33,13 @@ class Farmer(models.Model):
     fidentity=models.OneToOneField(User,on_delete=models.CASCADE)
     Dob=models.DateField()
     address=models.CharField(blank=False,max_length=200)
-    #owner=models.OneToOneField(User,on_delete=models.CASCADE)
-    balance=models.IntegerField(default=0)
     
+    balance=models.IntegerField(default=0)
+    fstate=models.ForeignKey(State,on_delete=models.CASCADE)
+    fdis=models.ForeignKey(District,on_delete=models.CASCADE)
+
+
+
 
 #details of the seller
 class Seller(models.Model):

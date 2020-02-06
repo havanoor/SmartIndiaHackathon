@@ -12,4 +12,7 @@ admin.site.register(Inventory)
 admin.site.register(Transaction)
 admin.site.register(Dealer)
 admin.site.register(BankExecutive)
+admin.site.register(State)
+admin.site.register(District)
+admin.site.register(CropStats)
 
