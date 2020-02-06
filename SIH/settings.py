@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'farmers.apps.FarmersConfig',
     'forward.apps.ForwardConfig',
     'Bank.apps.BankConfig',
+    'weather.apps.WeatherConfig',
 ]
 
 MIDDLEWARE = [

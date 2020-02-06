@@ -30,5 +30,6 @@ urlpatterns = [
 
     #urls of forward market app
     path('forward/',include('forward.urls')),
+    path('weather/',include('weather.urls')),
 ]
 urlpatterns=urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
