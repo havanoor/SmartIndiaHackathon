@@ -48,4 +48,7 @@ class TransactionsForm(forms.ModelForm):
 
 
 
-
+class FarmerRegister(forms.ModelForm):
+    class Meta:
+        model=Farmer
+        fields=['address','fstate','fdis']

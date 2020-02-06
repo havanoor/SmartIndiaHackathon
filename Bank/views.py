@@ -74,3 +74,4 @@ def verify(request,obj_id):
     l.Approved_Farmer=True
     l.save()
     return HttpResponse ('Done')
+

@@ -10,10 +10,15 @@ class Loan(models.Model):
     Rate=models.FloatField()
     Year=models.IntegerField()
 
+    def __str__(self):
+        return self.Publisher.Bank_Name
+
+
 class LoanIssue(models.Model):
     Issuer=models.ForeignKey(BankExecutive,on_delete=models.CASCADE)
     Issued_To= models.ForeignKey(Farmer,on_delete=models.CASCADE)
     Loan_Ref=models.ForeignKey(Loan,on_delete=models.CASCADE)
     Approved_Bank=models.BooleanField()
     Approved_Farmer=models.BooleanField()
+
 

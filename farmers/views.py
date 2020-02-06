@@ -22,7 +22,7 @@ def register(request):
         type1=new.cleaned_data['post']
         if type1.lower()=='farmer':
             
-            return render(request,'register',{'type':type1.lower()})
+            return redirect('/farmerRegister/farmer')
            
         elif type1.lower()=='seller':
             return render(request,'register.html',{'type':type1.lower()})
@@ -41,33 +41,41 @@ def register(request):
 
 
 def registerf(request,value):
-    if request.method=='POST':
-        if value=='farmer':
+    if value=='farmer':
+        form=FarmerRegister(request.POST)
+        if request.method=='POST':
+            if form.is_valid():
+                f=Farmer(fidentity=request.user,address=form.cleaned_data.get('address'),fstate=form.cleaned_data.get('fstate'),fdis=form.cleaned_data.get('fdis'))
+                f.save()
+            else:
+                return render(request,'farmerRegister.html',{'form':form})
+
+        else:
+            return render(request,'farmerRegister.html',{'form':form})
+
+    else:
+        if request.method=='POST':
         
-            farm=Farmer()
-            farm.address=request.POST['address']
-            farm.Dob=request.POST['dob']
-            farm.fidentity=request.user
-            farm.save()
-        elif value=='dealer':
+            if value=='dealer':
         
-            d=Dealer()
-            d.Ref=request.user
-            d.Address=request.POST['address']
-            d.Contact=request.POST['contact']
-            d.save()
-        elif value=='seller':
+                d=Dealer()
+                d.Ref=request.user
+                d.Address=request.POST['address']
+                d.Contact=request.POST['contact']
+                d.save()
+            elif value=='seller':
         
-            s=Seller()
-            s.sidentity=request.user
-            s.address=request.POST['address']
-            s.Contact=request.POST['contact']
-            s.save()
-        elif value == 'bankexecutive':
-            b=BankExecutive()
-            b.Ref=request.user
-            b.Address=request.POST['address']
-            b.Contact=request.POST['contact']
+                s=Seller()
+                s.sidentity=request.user
+                s.address=request.POST['address']
+                s.Contact=request.POST['contact']
+                s.save()
+            elif value == 'bankexecutive':
+                b=BankExecutive()
+                b.Ref=request.user
+                b.Address=request.POST['address']
+                b.Contact=request.POST['contact']
+                b.save()
 
     return HttpResponse('Created')
 
