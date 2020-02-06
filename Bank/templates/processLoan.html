@@ -7,11 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    {% for i in loan %}
-    
-    {{i.Amt}}
-    
-    {% endfor %}
-    <a href="{% url 'processLoan' %}">Process Loan</a>
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">
+            Submit
+        </button>
+    </form>
 </body>
 </html>
