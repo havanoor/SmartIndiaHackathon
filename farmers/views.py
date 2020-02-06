@@ -118,31 +118,29 @@ def calculate(request,value):
     farmer.save()
     return redirect('home')
 
-def purchase(request):
-    buy=TransactionsForm(request.POST)
-    if buy.is_valid():
-        buy.save()
-        user1=buy.cleaned_data['farm']
-        user1.balance =user1.balance-buy.cleaned_data['name'].amount
-        user1.save()
-        return HttpResponse("OK")
-        
+def transaction(request,obj_id):
+    request.session['k']=obj_id
+    i=Inventory.objects.get(id=obj_id)
 
-
-    else:
-        buy=TransactionsForm()
     
+    cost=i.amount
+    
+    return render(request,"purchase.html",{'cost':cost})
+
+def Success(request):
+    key=request.session['k']
+    print(key)
+
+    return HttpResponse(key)
 
 
 
 
-
-    return render(request,'marketplace.html',{'form1':buy})
+    
 
 def purchase(request):
     a=Inventory.objects.all()
-    for i in a:
-        print(i.photo)
+    
     return render(request,'marketplace.html',{'val':a})
 
 

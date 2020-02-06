@@ -1,30 +1,29 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>    </title>
-
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
-
-
 <body>
-<form method="POST">
-    {% csrf_token %}
-    {{form1.as_p}}
-    <button type="submit">Buy</button>
-</form>
-
-
+    <form action="success/" method="POST">
+            {% csrf_token %}
+        <script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="rzp_test_3Ds6LcUtNdTk1B" 
+            data-amount="{{cost}}" 
+            data-currency="INR"
+            
+            data-buttontext="Pay with Razorpay"
+            data-name="Devops and CO"
+            data-description="Room Booking"
+            data-image="https://example.com/your_logo.jpg"
+            data-prefill.name="Jash"
+            data-prefill.email="shahjash271@gmail.com"
+            data-theme.color="#00008b"
+        ></script>
+        <input type="hidden" custom="Hidden Element" name="hidden">
+        </form>
 </body>
-
-
-
-
-
-
-
-
-
-
 </html>

@@ -35,11 +35,12 @@
                       <div class="card text-center">
                           <div class="card-header">title</div>
                           <div class="card-body"></div>
-                          <li><img src="{{i.photo.url}}">img goes here</li>
+                          <li><img src="{{i.photo.url}}"></li>
                           <li>Cost:{{i.amount}}</li>
                           <li>Seller{{i.seller}}</li>
                           <div class="card-footer">
-                          <a href="#">Purchase</a>                             
+                          <a href="{% url 'payment' i.id %}">Purchase</a>                             
+                          {{i.photo.url}}
                           </div>
                       </div>
                   </div>
@@ -47,4 +48,5 @@
               {% endfor %}
           </div>
           </body>
+          <!---This will work-ek min ruk kuch aur 5 minnnntry ka raha hu?? okkk->
 </html>

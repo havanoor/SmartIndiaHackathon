@@ -19,12 +19,12 @@ class District(models.Model):
 
 class CropStats(models.Model):
     dref=models.ForeignKey(District,on_delete=models.CASCADE)
-    ph=models.ImageField()
-    N=models.ImageField()
-    P=models.ImageField()
-    K=models.ImageField()
-    OC=models.ImageField()
-    Fe=models.ImageField()
+    ph=models.ImageField(upload_to='photos/')
+    N=models.ImageField(upload_to='photos/')
+    P=models.ImageField(upload_to='photos/')
+    K=models.ImageField(upload_to='photos/')
+    OC=models.ImageField(upload_to='photos/')
+    Fe=models.ImageField(upload_to='photos/')
 
 
 
@@ -62,7 +62,7 @@ class Inventory(models.Model):
     Type=models.CharField(blank=False,max_length=100)
     seller=models.ForeignKey(Seller,on_delete=models.CASCADE)
     amount=models.IntegerField(blank=False)
-    photo=models.ImageField()
+    photo=models.ImageField(upload_to='media')
 
 
 #this class handles all the transactions between farmer and the seller

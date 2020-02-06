@@ -21,7 +21,10 @@ urlpatterns = [
     path('buy/',views.purchase,name='buy'),
 
     #Registering details of new user
-    path('farmerRegister/<str:value>',views.registerf,name="register")
+    path('farmerRegister/<str:value>',views.registerf,name="register"),
+
+    path('makePayment/<int:obj_id>',views.transaction,name='payment'),
+    path('makePayment/success/',views.Success,name='success'),
     
     
     
