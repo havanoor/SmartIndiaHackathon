@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from .models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-#from twilio.rest import Client
+from twilio.rest import Client
 # Create your views here.
 
 
@@ -47,6 +47,16 @@ def registerf(request,value):
             if form.is_valid():
                 f=Farmer(fidentity=request.user,address=form.cleaned_data.get('address'),fstate=form.cleaned_data.get('fstate'),fdis=form.cleaned_data.get('fdis'))
                 f.save()
+                account_sid = "ACdba2322fbfb7f799611ab1393126afc9"
+                auth_token  =  "1196ac8c07c05bb98053f602bcb4236a"
+                client = Client(account_sid, auth_token)
+
+                message = client.messages.create(
+
+                to="+91{}".format(f.contact),
+                from_="+12074050731",
+                body="Registered as a Farmer -Team 404",
+            )
             else:
                 return render(request,'farmerRegister.html',{'form':form})
 
@@ -63,18 +73,48 @@ def registerf(request,value):
                 d.Address=request.POST['address']
                 d.Contact=request.POST['contact']
                 d.save()
+                account_sid = "ACdba2322fbfb7f799611ab1393126afc9"
+                auth_token  =  "1196ac8c07c05bb98053f602bcb4236a"
+                client = Client(account_sid, auth_token)
+
+                message = client.messages.create(
+
+                to="91{}".format(d.Contact),
+                from_="+12074050731",
+                body="Registered as a Dealer -Team 404",
+            )
             elif value=='seller':
         
                 s=Seller()
                 s.sidentity=request.user
                 s.address=request.POST['address']
                 s.Contact=request.POST['contact']
+                account_sid = "ACdba2322fbfb7f799611ab1393126afc9"
+                auth_token  =  "1196ac8c07c05bb98053f602bcb4236a"
+                client = Client(account_sid, auth_token)
+
+                message = client.messages.create(
+
+                to="91{}".format(s.contact),
+                from_="+12074050731",
+                body="Registered as a Seller -Team 404",
+            )
                 s.save()
             elif value == 'bankexecutive':
                 b=BankExecutive()
                 b.Ref=request.user
                 b.Address=request.POST['address']
                 b.Contact=request.POST['contact']
+                account_sid = "ACdba2322fbfb7f799611ab1393126afc9"
+                auth_token  =  "1196ac8c07c05bb98053f602bcb4236a"
+                client = Client(account_sid, auth_token)
+
+                message = client.messages.create(
+
+                to="91{}".format(b.Contact),
+                from_="+12074050731",
+                body="Registered as a BankExecutive -Team 404",
+            )
                 b.save()
 
     return HttpResponse('Created')
