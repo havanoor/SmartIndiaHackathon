@@ -168,6 +168,8 @@ def calculate(request,value):
 
 def transaction(request,obj_id):
     request.session['k']=obj_id
+    p=request.session['k']
+    print(p)
     i=Inventory.objects.get(id=obj_id)
 
     
@@ -177,6 +179,8 @@ def transaction(request,obj_id):
 
 def Success(request):
     key=request.session['k']
+    
+    print(key)
     print(key)
 
     return HttpResponse(key)
