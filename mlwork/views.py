@@ -8,7 +8,8 @@ from .views2 import *
 
 
 def MachineHome(request):
-   
+    Xaxis=[]
+    Yaxis=[]
     farm=Farmer.objects.get(fidentity=request.user)
     dis=farm.fdis
     stats=District.objects.get(dname=dis)
@@ -24,7 +25,14 @@ def MachineHome(request):
     l1.append(temp[0])
     l1.append(temp[1])
     final_result=yield_calculate(l1)
-    
-    return HttpResponse(final_result[1])
+
+    for i in final_result[0]:
+        Xaxis.append(i)
+    for j in final_result[1]:
+        Yaxis.append(j[0])
+
+    print(Yaxis)
+
+    return render(request,"MachineHome.html",{"Xaxis":Xaxis,"Yaxis":Yaxis})
     
 

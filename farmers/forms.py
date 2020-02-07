@@ -52,7 +52,7 @@ class FarmerRegister(forms.ModelForm):
     address=forms.CharField(
         label="",widget=forms.TextInput(
 
-        attrs={'class':'us','placeholder':'Email'}
+        attrs={'class':'us','placeholder':'address'}
     )
     )
     

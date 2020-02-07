@@ -25,7 +25,7 @@
 			   <li><a href="#" style="color:white;">About<span></span></a></li>
 			   <li><a href="#" style="color:white;">Schemes<span></span></a></li>
 			   <li><a href="#" style="color:white;">News</a></li>
-			   <li><a href="#" style="color:white;">Logout</a></li>
+			   <li><a href="{% url 'login' %}" style="color:white;">Logout</a></li>
 			</ul>
 		  </div>
 	   </nav>
@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-lg-3">
         <div class="card bg-dark text-white border-0 transform-on-hover">
-          <img class="card-img-top img-fluid" src="{% static 'css/statics/cropanalysis.png' %}" >
+          <a href="{% url 'MachineHome'%}"><img class="card-img-top img-fluid" src="{% static 'css/statics/cropanalysis.png' %}" ></a>
          <div class="card-body">
            
          </div>

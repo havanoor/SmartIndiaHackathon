@@ -1,11 +1,17 @@
 from django.shortcuts import render
 import requests,json
+from farmers.models import *
 
 def weather_display(request):
     loc_base_url="https://maps.googleapis.com/maps/api/place/findplacefromtext/json?"
     li=[]
+    dis=Farmer.objects.get(fidentity=request.user)
+    print(dis.fdis.dname)
     if request.method=='POST':
         place=request.POST['name']
+        dis=Farmer.objects.get(fidentity=request.user)
+        print(dis.fdis.dname)
+
 
         loc_api_key='AIzaSyD2OfkmLHKOjsBSn7caMmvFijLz4CC45Us'
         loc_final_url=loc_base_url+"input="+place+"&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key="+loc_api_key
@@ -31,5 +37,5 @@ def weather_display(request):
             print(i['temperatureHigh'])
             li.append(i['temperatureHigh'])
 
-    return render(request,"weatherHome.html",{'data':li})
+    return render(request,"weatherHome.html",{'data':li,'val':dis.fdis.dname})
         

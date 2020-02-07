@@ -12,7 +12,9 @@ urlpatterns = [
     #URL form for new loan
     path('CreateLoan/',views.CreateLoan,name='CreateLoan'),
 
-    path('processLoan',views.processLoan,name='processLoan')
+    path('processLoan/',views.processLoan,name='processLoan'),
+    path('verify/<int:obj_id>',views.verify,name="Verify")
+
     
     
     
