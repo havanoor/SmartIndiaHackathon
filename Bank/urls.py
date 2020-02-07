@@ -10,7 +10,9 @@ urlpatterns = [
     path('CreateLoan/makeloan/',views.makeloan,name='makeloan'),
 
     #URL form for new loan
-    path('CreateLoan/',views.CreateLoan,name='CreateLoan')
+    path('CreateLoan/',views.CreateLoan,name='CreateLoan'),
+
+    path('processLoan',views.processLoan,name='processLoan')
     
     
     

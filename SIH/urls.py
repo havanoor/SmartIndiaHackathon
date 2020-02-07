@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import  include,path
 
 urlpatterns = [
     #urls of bank finance app
@@ -27,4 +27,6 @@ urlpatterns = [
 
     #urls of forward market app
     path('forward/',include('forward.urls')),
+
+    path('MlWork/', include('mlwork.urls')),
 ]
