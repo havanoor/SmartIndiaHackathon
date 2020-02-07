@@ -1,4 +1,9 @@
-
+.pic{
+	height: 150px;
+	width: 150px;;
+	border-radius: 50%;
+	transform: translate(50px,-20px);
+}
 *{margin: 0; padding: 0; box-sizing: border-box;
    font-family: 'Montserrat', sans-serif;
  }

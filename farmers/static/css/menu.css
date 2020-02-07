@@ -1,0 +1,134 @@
+.row{
+	padding-top:15px;
+}
+
+
+.bgg{
+    background-image: url("statics/crropanalysisbg.jpg");
+    min-height: 680px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.7;
+}
+
+.bggg{
+    background-image: url("statics/animalhusbandrybg.jpg");
+    min-height: 680px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.7;
+}
+
+.bg1{
+    background-image: url("statics/lananalysisbg.jpg");
+    min-height: 680px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.7;
+}
+.bg2{
+    background-image: url("statics/weatherstation.jpg");
+    min-height: 680px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.7;
+}
+.bg3{
+    background-image: url("statics/pestattackbg.jpg");
+    min-height: 680px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.7;
+}
+.bg4{
+    background-image: url("statics/marketplacebg.jpg");
+    min-height: 750px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.7;
+}
+.bg5{
+    background-image: url("statics/kisansevabg.jpg");
+    min-height: 680px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.7;
+}
+.bg6{
+    background-image: url("statics/futurescontractbg.jpg");
+    min-height: 680px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.7;
+}
+nav{
+    transform: translateY(-20px);
+}
+.navbar {height:100px !important}
+.card{
+    transition: 0.4s ease;
+}
+.card-header{
+    font-size:1.4rem;
+    font-weight:bold;
+    background: white !important;
+    padding: 25px !important;
+    height: 55px;
+}
+.card-body{
+    padding: 30px 0px !important;
+    height: 0px;
+}
+.card-body li{
+    margin: 10px 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #606060;
+}
+.card-footer{
+    background: white !important;
+    padding: 20px 0px !important;
+}
+.card-footer a{
+    border: 1px solid #fff;
+    border-radius: 100px;
+    margin:0 5px;
+    padding: 12px 35px;
+    outline: none;
+    color: #50d1c0;
+    font-size:1rem;
+    font-weight:400;
+    line-height: 1.4;
+    text-align: center;
+}
+.card:hover .card-footer a{
+    color: #fff;
+    background: #50d1c0;
+    text-decoration: none;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+}
+.card:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+}
+.card:hover .card-header{
+    color:#50d1c0;
+
+}

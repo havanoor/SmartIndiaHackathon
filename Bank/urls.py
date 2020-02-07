@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     #URL to view all the loans
-    path('ViewLoan/',views.LoanView,name='loanView'),
+    path('ViewLoan/',views.LoanView,name='LoanView'),
 
     #URL to make new loan request
     path('CreateLoan/makeloan/',views.makeloan,name='makeloan'),

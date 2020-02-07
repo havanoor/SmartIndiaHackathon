@@ -1,17 +1,242 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+ 	<title>Bank</title>
+ 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link rel="stylesheet" href="{% static 'css/bootsnav.css' %}"> 	
+	 <link rel="stylesheet" href="{% static 'css/bank.css' %}"> 
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="{% static 'js/bootsnav.js' %}"></script>
+
+  <style>
+		body{
+			background:url("{% static 'css/statics/kisansevabg.jpg' %}");
+			min-height: 680px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative; 
+			overflow: hidden;
+		}
+		
+		nav.navbar.bootsnav{
+			border: none;
+			background: rgba(44,62,80,0.7); /*navbar background*/
+			margin-bottom: 150px;		
+			margin-top:25px;
+            height:63px;
+            width: 700px;
+		}
+		
+		nav.navbar.bootsnav ul.nav > li{margin-right: 30px;}
+		nav.navbar.bootsnav ul.nav > li > a{
+			padding: 10px 20px;
+			border-radius: 0;
+			color: white; /*navbar font*/
+			text-transform: uppercase;
+			border: 2px solid rgba(255,255,255,0.2);
+			position: relative;
+			transition: all 0.3s ease 0s;
+			margin-top: 10px;	
+		}
+		nav.navbar.bootsnav ul.nav > li.dropdown > a{
+			padding: 10px 30px 10px 15px;
+		}
+		
+		nav.navbar.bootsnav ul.nav > li > a:hover,
+		nav.navbar.bootsnav ul.nav > li.on > {
+		color: black;
+		}
+		
+		
+		nav.navbar.bootsnav ul.nav > li > a > span:before{
+			content: "";
+			width: 0;
+			height: 3px;
+			background: white; /* hover underline colour*/                                           
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			transition: all 0.3s ease 0s;
+		}
+		
+		
+		nav.navbar.bootsnav ul.nav > li:hover > a > span:before{
+			width: 50%;
+			animation: bounce 1.5s 0.3s ease-out infinite;
+		}
+		
+		nav.navbar.bootsnav ul.nav > li.active > a > span:before,
+		nav.navbar.bootsnav ul.nav > li.on > a > span:before{
+		    width: 50%;
+			left: 25%;
+		}
+		
+		nav.navbar.bootsnav ul.nav>li.dropdown > a.dropdown-toggle:after{
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			margin:  0 0 0 7px;
+			
+		}
+		
+		nav.navbar.bootsnav ul.nav>li.dropdown > ul{
+			top: 120%;
+			transition: all 0.8s ease 0s;
+		}
+		
+		
+		nav.navbar.bootsnav ul.nav > li.dropdown.on > ul{
+			
+			top: 110%;
+			
+		}
+		
+		.dropdown-menu.multi-dropdown{
+			position: absolute;
+			left: -100% !important;
+		}
+		
+		nav.navbar-bootsnav li.dropdown ul.dropdown-menu{
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			border: none;
+			border-radius: 20px;
+			
+		}
+		
+		nav.navbar.bootsnav li.dropdown ul.dropdown-menu.megamenu-content li{
+			font-size: 14px;
+			color: white;
+		}
+		
+		nav.navbar.bootsnav li.dropdown ul.dropdown-menu.megamenu-content .title{
+			font-size: 16px;
+			font-weight: bold;
+			color: #1a4b6d;
+		}	
+		@keyframes boucne{
+			0%{
+				left: 0;
+			}
+			48%{
+				left: 50%;
+			}
+			50%{
+				left: 50%;
+			}
+			
+			98%{
+				left:0%;
+			}
+			100%{
+				left:0%;
+			}
+		}
+	</style>
+
 </head>
 <body>
-    {% for i in loan %}
-    
-    {{i.Amt}}
-    
-    {% endfor %}
-    
+	<div class="container">
+        <div class="row">
+        	<div class="col-md-4 logo"><h2 style="color:white">FARMER'S PORTAL</h2></div>
+            <div class="col-md-8">
+                <nav class="navbar navbar-default navbar-mobile bootsnav on">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav" data-in="fadeInDown" data-out="fadeOutUp">
+                            <li class="active"><a href="#" data-hover="Home">Home <span></span></a></li>
+                            <li><a href="#" data-hover="About">About <span></span></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="Shortcodes">Schemes<span></span></a>
+                                <ul class="dropdown-menu animated">
+                                    <li><a href="#">Custom Menu</a></li>
+                                    <li><a href="#">Custom Menu</a></li>
+                                    <li><a href="#">Custom Menu</a></li>
+                                    <li><a href="#">Custom Menu</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="Shortcodes">News <span></span></a>
+                                <ul class="dropdown-menu animated">
+                                    <li><a href="#">Custom Menu</a></li>
+                                    <li><a href="#">Custom Menu</a></li>
+                                    <li><a href="#">Custom Menu</a></li>
+                                    <li><a href="#">Custom Menu</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" data-hover="LogOut">Log Out <span></span></a></li>
+                        </ul>
+                    </div>
+                </nav>        
+            </div>
+		 </div>  
+	</div>
+	<div class="container-fluid hi">
+		 <div class="row">
+			<div class="col-md-3">
+			  <div class="lef1">
+				  <br>
+				  <img src="{% static 'css/statics/wallpaper1.jpg' %}">
+				 <br><br><span>Name</span>
+			  </div>
+			  <div class="lef2">
+				  <p>Pending Loans:</p>
+				  <ul style="list-style: none;">
+					  <li>
+                          {% for i in loan %}
+					  <div class="card dis">
+						  Amount:{{i.Amt}}
+						  <br>
+                          Rate of Interest:{{i.Rate}}                    
+                          <br>
+                          Issuer:{{i.Publisher}}
+                          <br>
+                          Year:{{i.Year}}
+                      </div>
+                      {% endfor %}
+				  </li>
+				  </ul>                    
+			  </div>                      
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-4 cen">
+					
+						<ul style="list-style: none;">
+							<li>
+							<div class="card dis">
+								<span>Amount</span>
+						<span>Name of bank</span>
+						<span>Rate of Interest</span>             
+							</div>
+						</li>
+						</ul>     
+					
+
+					
+		   </div>
+		   <div class="col-md-1"></div>                       
+				 
+			<div class="col-md-3">
+				<div class="row r1">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15072.9410065777!2d72.839731447777!3d19.184924584813327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sbanks!5e0!3m2!1sen!2sin!4v1581043029970!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+				</div>
+				<div class="row r2">
+					The above map displays the banks near you. The banks will help you find suitable loans 
+					and fulfill your agricultral needs. The centre of the page is a list of banks providing loans. Apart from 
+					this, it gives information about the loan amount, the rate of interest and the duration of the loan.
+
+				</div>
+			</div>
+		</div>
+	</div> 
+    </div>
 </body>
 </html>

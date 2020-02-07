@@ -5,7 +5,7 @@
   <title>Marketplace</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="{% static 'css/menu.css' %}" rel="stylesheet" type="text/css" >
+  <link href="{% static 'css/menu.css' %}" rel="stylesheet" type="text/css" >s
   <link href="{% static 'css/home.css' %}" rel="stylesheet" type="text/css" >
   <link href="{% static 'css/try1.css' %}" rel="stylesheet" type="text/css" >
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -28,24 +28,25 @@
              </div>
           </nav>
           <div class="container">
-            <!--loop starts-->
-            {% for i in val%}
+            <!--loop starts-->     
             <div class="row">
+              {% for i in val%}
                   <div class="col-lg-3 col-12">
                       <div class="card text-center">
                           <div class="card-header">title</div>
                           <div class="card-body"></div>
-                          <li><img src="{{i.photo.url}}"></li>
+                         <img src="{{i.photo.url}}" class="pic">
                           <li>Cost:{{i.amount}}</li>
                           <li>Seller{{i.seller}}</li>
                           <div class="card-footer">
                           <a href="{% url 'payment' i.id %}">Purchase</a>                             
-                          {{i.photo.url}}
+                         
                           </div>
                       </div>
                   </div>
+                  {% endfor %}
               </div>
-              {% endfor %}
+             
           </div>
           </body>
           <!---This will work-ek min ruk kuch aur 5 minnnntry ka raha hu?? okkk->
