@@ -18,6 +18,7 @@ from django.urls import path,include
 from django.conf import settings 
 from django.conf.urls.static import static
 
+from django.urls import  include,path
 
 urlpatterns = [
     #urls of bank finance app
@@ -31,5 +32,7 @@ urlpatterns = [
     #urls of forward market app
     path('forward/',include('forward.urls')),
     path('weather/',include('weather.urls')),
+
+    path('MlWork/', include('mlwork.urls')),
 ]
 urlpatterns=urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

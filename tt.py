@@ -20,8 +20,7 @@ API_KEY='fc5e98a1edc97881879adb0e2a793604/'
 final=base_url+API_KEY+str(lat)+","+str(longi)+"?"+"units=si"
 response2=requests.get(final)
 val2=response2.json()
-dataset=val2['daily']['data']
-
-for i in dataset:
-    print(i['temperatureHigh'])
-    print("-----------------------------")
+dataset=val2['currently']['temperature']
+print(dataset)
+#for i in dataset:
+ ##  print("-----------------------------")

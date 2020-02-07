@@ -17,6 +17,7 @@ class District(models.Model):
     OC=models.FloatField(blank=False)
     Fe=models.FloatField(blank=False)
     
+    rainfall=models.FloatField(blank=False)
 
     def __str__(self):
         return self.dname
@@ -51,7 +52,7 @@ class Farmer(models.Model):
     contact=models.CharField(max_length=10)
 
     def __str__(self):
-        return self.fidentity
+        return self.fidentity.username
 
 
 

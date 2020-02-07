@@ -7,15 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <form method ="POST" action='makeloan/'>
+    <form method ="POST" >
     {% csrf_token %}
-Amt<input type="number" name='amt'>
-Rate<input type="number" name ='rate'>
-Year<input type ="number" name ='year'>
+  {{form}}
     
     <button type="submit">Submit:</button>
 </form>
 </body>
 </html>
-	
+    
+
  

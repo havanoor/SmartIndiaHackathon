@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'forward.apps.ForwardConfig',
     'Bank.apps.BankConfig',
     'weather.apps.WeatherConfig',
+    'mlwork.apps.MlworkConfig',
 ]
 
 MIDDLEWARE = [

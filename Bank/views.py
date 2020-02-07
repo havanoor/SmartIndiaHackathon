@@ -7,9 +7,14 @@ from django.core.mail import send_mail
 
 #this view is to display all the current loans
 def LoanView(request):
+    flag=0
     q=Loan.objects.all()
-    
-    return render(request,'homeloan.html',{'loan':q})
+    try:
+        u=BankExecutive.objects.get(Ref=request.user)
+        flag=1
+    except:
+        flag=0
+    return render(request,'homeloan.html',{'loan':q,'flag':flag})
 
 #This view is used to create a loan for the farmer
 def CreateLoan(request):
