@@ -13,7 +13,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
 <body>
     <form method="POST">
         {% csrf_token %}
-        <input type="text" name="name">
+        <input type="text" name="name" value="{{val}}">
         <button type="submit">Submit</button>
     </form>
     {% if data%}
@@ -31,7 +31,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
       data: { 
         labels: ["Day1", "Day2" , "Day3" , "Day4", "Day5", "Day6","Day7"], 
         datasets: [ 
-          { label: '# of students', 
+          { label: 'Weather', 
             data: {{data}}, 
             backgroundColor :['rgba(255, 99, 132, 0.2)', 
                     'rgba(54, 162, 235, 0.2)', 
