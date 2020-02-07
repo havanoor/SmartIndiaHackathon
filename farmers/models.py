@@ -16,6 +16,7 @@ class District(models.Model):
     K=models.FloatField(blank=False)
     OC=models.FloatField(blank=False)
     Fe=models.FloatField(blank=False)
+    
 
     def __str__(self):
         return self.dname
