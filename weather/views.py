@@ -3,7 +3,6 @@ import requests,json
 from farmers.models import *
 
 def weather_display(request):
-    loc_base_url="https://maps.googleapis.com/maps/api/place/findplacefromtext/json?"
     li=[]
     dis=Farmer.objects.get(fidentity=request.user)
     print(dis.fdis.dname)
@@ -12,17 +11,15 @@ def weather_display(request):
         dis=Farmer.objects.get(fidentity=request.user)
         print(dis.fdis.dname)
 
-
-        loc_api_key='AIzaSyD2OfkmLHKOjsBSn7caMmvFijLz4CC45Us'
-        loc_final_url=loc_base_url+"input="+place+"&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key="+loc_api_key
+        loc_final_url="https://api.opencagedata.com/geocode/v1/json?q={}&key=260699c0c06c46839d815f10c75c0039".format(place)
 
         response1=requests.get(loc_final_url)
         val=response1.json()
 
-        val2=val['candidates'][0]
-        req=val2['geometry']['location']
-        lat=req['lat']
-        longi=req['lng']
+        val2=val['results'][0]['geometry']
+    
+        lat=val2['lat']
+        longi=val2['lng']
         
         
         base_url='https://api.darksky.net/forecast/'
